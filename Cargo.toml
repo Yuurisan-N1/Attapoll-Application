@@ -1,0 +1,31 @@
+[package]
+name = "attapoll-bot"
+version = "1.0.0"
+edition = "2021"
+license = "AGPL-3.0-or-later"
+description = "Automation client for the AttaPoll survey panel"
+authors = ["Yuurisan <https://t.me/Y3YuYuYo>"]
+build = "build.rs"
+
+[[bin]]
+name = "attapoll-bot"
+path = "src/main.rs"
+
+[dependencies]
+chrono = "0.4"
+reqwest = { version = "0.12", default-features = false, features = ["blocking", "json", "rustls-tls", "gzip"] }
+serde = { version = "1", features = ["derive"] }
+serde_json = "1"
+thiserror = "2"
+tokio = { version = "1", features = ["rt", "signal", "net", "time"] }
+uuid = { version = "1", features = ["v4"] }
+
+[build-dependencies]
+winres = "0.1"
+
+[profile.release]
+opt-level = "z"
+lto = true
+codegen-units = 1
+panic = "abort"
+strip = true
