@@ -1,0 +1,11 @@
+{
+  "settings": {
+    "sleep_seconds": 3600,
+    "retries": 3,
+    "gates": false
+  },
+  "payout": {
+    "method": "PAYPAL",
+    "account": ""
+  }
+}
