@@ -1,0 +1,28 @@
+ATTA POLL BOT QUICK START
+
+1. Install rust 1.80 or newer.
+2. cargo build --release
+3. Fill data.txt with one mail address per line. There is no password.
+4. Fill proxy.txt with one proxy per line, or leave it empty.
+5. Run ./attapoll-bot selftest to check the local files.
+6. Run ./attapoll-bot once for a single cycle.
+7. Run ./attapoll-bot run for the endless loop.
+
+DATA FILE
+One mail address per line. The account signs in with a mail link, so there is
+no password to store and nothing else belongs on the line.
+
+SIGN IN
+The first run sends a sign in link to the mail and waits for the whole link to
+be pasted back. The session is then kept in tokens.json and renewed
+without another mail. The link can also be handed in directly:
+./attapoll-bot link mail@example.com
+./attapoll-bot signin-link mail@example.com "the whole link from the mail"
+
+PAYOUT
+The payout address lives in config.json under payout.account, together with
+payout.method. It is the cashout target, not part of the sign in.
+
+ACCOUNT GATE
+When the panel asks for a phone check or a device integrity token, that step
+is written to the log and skipped. The rest of the run continues.
