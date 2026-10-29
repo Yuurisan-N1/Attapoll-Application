@@ -1,0 +1,14 @@
+# build output
+/target
+# the account cache, keyed by mail address
+/tokens.json
+# runtime files
+*.log
+src/auth/session.rs
+src/cli/dispatch.rs
+src/integrity/verify.rs
+src/net/client.rs
+src/projects/survey.rs	
+src/run/account.rs
+src/support/consts/net.rs
+src/support/consts/app.rs
